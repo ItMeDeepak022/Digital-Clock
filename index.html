@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Watch</title> 
+    <link href="style.css" rel="stylesheet">
+    <style>
+        body {
+  display: flex;
+  flex-direction: column;
+  justify-content:center;
+  align-items: center;
+  height:90vh;
+  background:black;
+  font-family: 'Orbitron', sans-serif;
+}
+
+h1{
+    color: white;
+    max-width: 500px;
+  font-size:50px;
+  font-weight: normal;
+  text-align: center;
+}
+h2 {
+   max-width: 500px;
+  font-size:50px;
+  font-weight: bolder;
+  color: cyan;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 20px 15px;
+  box-shadow:0px 0px 10px 5px red;
+  letter-spacing: 5px;
+  text-align: center;
+  
+}
+@media only screen and (min-width:220px) and (max-width:575px) {
+
+
+h2 {
+ width: 100%;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ height: 50px;
+ /* border: 1px solid red; */
+ font-size:30px;
+ padding: 10px 0px;
+ /* margin: 10px; */
+
+}
+h1{
+     font-size:30px;
+    color: white;
+  width: 100%;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ /* border: 1px solid red; */
+}
+
+}
+
+
+    </style>
+</head>
+<body>
+    <h1>Digital Clock</h1>
+    <h2>12:00:00 AM</h2>
+</body>
+<script>
+    
+  
+
+ let Displaytime=()=>{
+    let currdate=new Date();
+    let hour=currdate.getHours();
+    let mintues=currdate.getMinutes();
+    let second=currdate.getSeconds();
+
+    let currenthour=(hour>12) ? hour-12  : hour ;
+    let currh=(currenthour<10) ? "0"+currenthour  : currenthour ;
+    let currmintes = (mintues<10) ? "0"+mintues : mintues;
+    let currsecond = (second<10) ? "0"+second : second;
+    let ampm=(hour>12) ? "PM":"AM";
+
+    let inner=document.querySelector("h2")
+    inner.innerHTML=`${currh} : ${currmintes} : ${currsecond } ${ampm}`;
+}
+
+ Displaytime();
+ setInterval(Displaytime, 1000);
+
+</script>
+</html>
+
+    
+
